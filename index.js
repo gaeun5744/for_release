@@ -7,6 +7,7 @@ const authRoute = require("./routes/auth");
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
+app.use(express.json());
 
 // 이거 건드리지 말기!!!
 if (process.env.NODE_ENV == "production") {
