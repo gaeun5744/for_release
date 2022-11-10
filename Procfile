@@ -1,1 +1,1 @@
-web: node test/index.js
+web:node test/index.js
