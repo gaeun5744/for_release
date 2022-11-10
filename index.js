@@ -5,7 +5,6 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
 const authRoute = require("./routes/auth");
-const multer = require("multer");
 
 dotenv.config();
 app.use(express.json());
