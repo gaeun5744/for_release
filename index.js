@@ -4,7 +4,10 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
+const authRoute = require("./routes/auth.js");
+
 dotenv.config();
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
@@ -21,6 +24,8 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
+
+app.use("/auth", authRoute);
 
 app.listen(PORT, async (req, res) => {
   console.log("Server is listening on localhost:5000");
