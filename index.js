@@ -14,6 +14,10 @@ mongoose
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
+app.get("/", (request, response) => {
+  response.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 app.listen(PORT, async (req, res) => {
   console.log("Server is listening on localhost:5000");
 });
