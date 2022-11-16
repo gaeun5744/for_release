@@ -4,6 +4,6 @@ import React from "react";
 
 export default function Posts() {
   return (
-    <div className="posts">{Post && Posts.map((p) => <Post post={p} />)}</div>
+    <div className="posts">{Posts && Posts.map((p) => <Post post={p} />)}</div>
   );
 }
