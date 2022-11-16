@@ -5,7 +5,7 @@ import React from "react";
 export default function Posts() {
   return (
     <div className="posts">
-      {Posts.map((p) => (
+      {Posts.title.map((p) => (
         <Post />
       ))}
     </div>
