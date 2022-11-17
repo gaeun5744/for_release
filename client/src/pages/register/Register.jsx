@@ -20,7 +20,7 @@ export default function Register() {
         email,
         password,
       });
-      res.data && window.location.replace("/login");
+      res.data && (await axios.get("/login"));
     } catch (err) {
       setError(true);
     }
