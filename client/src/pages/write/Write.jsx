@@ -32,7 +32,6 @@ export default function Write() {
       const res = await axios.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
-    axios.post("/posts", newPost);
   };
   return (
     <div className="write">
