@@ -13,8 +13,6 @@ const multer = require("multer");
 const path = require("path");
 
 const PORT = process.env.PORT || 5000;
-app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "/images")));
 
 app.use(express.json());
 
@@ -50,6 +48,8 @@ const upload = multer({ storage: storage });
 app.post("/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
+
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 app.use("/auth", authRoute);
 app.use("/users", usersRoute);
