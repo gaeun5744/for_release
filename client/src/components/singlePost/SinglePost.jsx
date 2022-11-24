@@ -42,7 +42,7 @@ export default function SinglePost() {
 
         <h1 className="singlePostTitle">
           {post.title}
-          {post.username === user?.usernae && (
+          {post.username === user?.username && (
             <div className="singlePostEdit">
               <i class="singlePostIcon fa-solid fa-pen-to-square"></i>
               <i
