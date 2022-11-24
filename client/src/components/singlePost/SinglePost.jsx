@@ -68,7 +68,10 @@ export default function SinglePost() {
             {title}
             {post.username === user?.username && (
               <div className="singlePostEdit">
-                <i class="singlePostIcon fa-solid fa-pen-to-square"></i>
+                <i
+                  class="singlePostIcon fa-solid fa-pen-to-square"
+                  onClick={() => setUpdateMode(true)}
+                ></i>
                 <i
                   class="singlePostIcon fa-solid fa-trash"
                   onClick={handleDelete}
