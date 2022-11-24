@@ -25,9 +25,9 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        {post.photo && (
+        {post.photo !== undefined ? (
           <img className="singlePostImg" src={PF + post.photo} alt="" />
-        )}
+        ) : null}
 
         <h1 className="singlePostTitle">
           {post.title}
