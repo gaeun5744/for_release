@@ -5,12 +5,15 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
   const PF = "https://test-for-release.herokuapp.com/images/";
+  const { user } = useContext(Context);
 
   const content = post.desc;
   const contentArr = (content || "").split("\n");
@@ -22,6 +25,14 @@ export default function SinglePost() {
     };
     getPost();
   }, [path]);
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${post._id}`, {
+        data: { username: user.username },
+      });
+      window.location.replace("/");
+    } catch (err) {}
+  };
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -31,10 +42,15 @@ export default function SinglePost() {
 
         <h1 className="singlePostTitle">
           {post.title}
-          <div className="singlePostEdit">
-            <i class="singlePostIcon fa-solid fa-pen-to-square"></i>
-            <i class="singlePostIcon fa-solid fa-trash"></i>
-          </div>
+          {post.username === user?.usernae && (
+            <div className="singlePostEdit">
+              <i class="singlePostIcon fa-solid fa-pen-to-square"></i>
+              <i
+                class="singlePostIcon fa-solid fa-trash"
+                onClick={handleDelete}
+              ></i>
+            </div>
+          )}
         </h1>
 
         <div className="singlePostInfo">
