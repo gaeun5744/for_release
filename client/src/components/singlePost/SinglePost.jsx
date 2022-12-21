@@ -65,7 +65,7 @@ export default function SinglePost() {
           />
         ) : (
           <h1 className="singlePostTitle">
-            {title}
+            {post.title}
             {post.username === user?.username && (
               <div className="singlePostEdit">
                 <i
